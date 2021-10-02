@@ -1,0 +1,39 @@
+[
+    {
+        "model": "wheater.Wheater",
+        "pk": 1,
+        "fields":{
+            "date": "2019-06-11",
+            "lat": 41.8818,
+            "lon": -87.6231,
+            "city": "Chicago",
+            "state": "Illinois",
+            "temperatures": "[24.0, 21.5, 24.0, 19.5, 25.5]"
+        }
+    },
+        {
+        "model": "wheater.Wheater",
+        "pk": 2,
+        "fields":{
+            "date": "2019-06-11",
+            "lat": 41.8818,
+            "lon": -87.6231,
+            "city": "Oakland",
+            "state": "California",
+            "temperatures": "[24.0, 21.5, 24.0, 19.5, 25.5]"
+        }
+    
+    },
+    {
+        "model": "wheater.Wheater",
+        "pk": 3,
+        "fields":{
+            "date": "2019-06-11",
+            "lat": 41.8818,
+            "lon": -87.6231,
+            "city": "Moscow",
+            "state": "N/A",
+            "temperatures": "[24.0, 21.5, 24.0, 19.5, 25.5]"
+        }
+    }
+]
