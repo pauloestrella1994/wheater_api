@@ -6,6 +6,7 @@ class WheaterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wheater
         fields = (
+            'id',
             'date',
             'lat',
             'lon',
