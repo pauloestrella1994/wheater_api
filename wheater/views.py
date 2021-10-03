@@ -1,20 +1,16 @@
 from rest_framework import serializers
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import generics
 from .models import Wheater
 from .serializers import WheaterSerializer
 
 
-class WheaterView(APIView):
+class WheatersView(generics.ListCreateAPIView):
+    queryset = Wheater.objects.all()
+    serializer_class = WheaterSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['city', 'date']
 
-    def get(self, request):
-        wheater = Wheater.objects.all()
-        serializer = WheaterSerializer(wheater, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def post(self, request):
-        serializer = WheaterSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+class WheaterView(generics.RetrieveAPIView):
+    queryset = Wheater.objects.all()
+    serializer_class = WheaterSerializer
