@@ -15,7 +15,7 @@ class WheatersView(generics.ListCreateAPIView):
 
         if city:
             data = city.split(",")
-            queryset = queryset.filter(city__in=data)
+            queryset = queryset.filter(city__iregex=r'(' + '|'.join(data) + ')')
 
         if date:
             queryset = queryset.filter(date=date)
