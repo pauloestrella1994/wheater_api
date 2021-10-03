@@ -12,6 +12,10 @@ Markdown = "^3.3.4"
 django-filter = "^21.1"
 python-decouple = "^3.5"
 ipython = "^7.28.0"
+pytest = "^6.2.5"
+pytest-cov = "^2.12.1"
+mixer = "^7.1.2"
+pytest-django = "^4.4.0"
 
 [tool.poetry.dev-dependencies]
 
