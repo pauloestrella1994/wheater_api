@@ -186,9 +186,30 @@ class TestWheatersView(TestCase):
         assert response.json() == response_data
 
 @pytest.mark.django_db
-class TestWheaterView:
+class TestWheaterView(TestCase):
     def setUp(self):
         self.client = APIClient()
 
     def test_wheaterbyid_view(self):
-        pass
+        path = reverse('wheaterbyid', kwargs={'pk': 1})
+        mixer.blend(
+            Wheater,
+            date="2019-06-11",
+            lat=41.8818,
+            lon=-87.6231,
+            city="Chicago",
+            state="Illinois",
+            temperatures=[24.0, 21.5, 24.0, 19.5, 25.5]
+        )
+        response = self.client.get(path)
+        response_data = {
+            "id": 1,
+            "date": "2019-06-11",
+            "lat": 41.8818,
+            "lon": -87.6231,
+            "city": "Chicago",
+            "state": "Illinois",
+            "temperatures": [24.0, 21.5, 24.0, 19.5, 25.5]
+        }
+        assert response.status_code == 200
+        assert response.json() == response_data
