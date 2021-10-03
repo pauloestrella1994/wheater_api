@@ -4,10 +4,10 @@ from datetime import datetime
 
 
 class Wheater(models.Model):
-    id = models.UUIDField(primary_key=True, editable=False)
+    id = models.AutoField(primary_key=True, editable=False)
     date = models.CharField(max_length=20, default=str(datetime.now().date()))
-    lat = models.DecimalField(max_digits=6, decimal_places=4)
-    lon = models.DecimalField(max_digits=6, decimal_places=4)
+    lat = models.FloatField()
+    lon = models.FloatField()
     city = models.CharField(max_length=50, null=False, blank=False)
     state = models.CharField(max_length=50, null=False, blank=False)
     temperatures = models.JSONField(null=False, blank=False)

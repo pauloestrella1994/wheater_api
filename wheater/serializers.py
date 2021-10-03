@@ -8,6 +8,7 @@ class WheaterSerializer(serializers.ModelSerializer):
         fields = (
             'date',
             'lat',
+            'lon',
             'city',
             'state',
             'temperatures',
