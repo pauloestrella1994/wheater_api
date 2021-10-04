@@ -31,6 +31,12 @@ install the dependencies
 poetry install
 ```
 
+Make sure you have you .env file configurated with you secret key, you can copy the local.env template and change the secret value
+
+```
+cp local.env .env
+```
+
 Migrate the database to add a db.sqlite3 and you can load some data to start to use you API
 ```
 poetry run python manage.py migrate
